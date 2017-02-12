@@ -1,5 +1,4 @@
-//问
-from functools import wraps 
+#-*- coding: utf-8 -*-
 from flask import abort , g  , request , jsonify  
 from app.models import User
 from flask_login import current_user 
