@@ -37,3 +37,15 @@ def show_profile():
         })
 
 
+@api.route('/user/search_user/')
+def show_user():
+    """搜索用户"""
+    username = request.args.get('username')
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        return jsonify({}), 404
+
+    return jsonify({ 
+       'uid': user.uid,
+       'username': username,
+       })
