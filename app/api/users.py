@@ -47,5 +47,5 @@ def show_user():
 
     return jsonify({ 
        'uid': user.uid,
-       'username': username,
+       'username': username
        })
