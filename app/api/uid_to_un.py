@@ -1,21 +1,21 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from flask import jsonify, request
 from .. import db
 from ..models import User
 from . import api
 
-@api.route('/api/uid_to_un/', methods=['GET'])
+@api.route('/uid_to_un/', methods=['POST'])
 def uid_to_un():
     """
     将用户的uid转为username
     """
-    uid = request.args.get('uid')
+    uid = request.get_json().get('uid')
 
     user = User.query.filter_by(uid=uid).first()
     if user is None:
         return jsonify ({}), 403
     else:
         return jsonify({
-            "user_username": user.username
+            "username": user.username
             }), 200
