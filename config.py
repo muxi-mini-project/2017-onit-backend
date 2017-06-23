@@ -70,7 +70,9 @@ class TestingConfig(Config):
 # production configuration
 class ProductionConfig(Config):
     """production configuration"""
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "data.sqlite")
+    # SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "data.sqlite")
+    SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI" )
+    
     @classmethod
     def init_app(cls, app):
         Config.init_app(app)

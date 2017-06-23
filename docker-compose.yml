@@ -1,0 +1,7 @@
+onit:
+    build: .
+    env_file: 
+        - onit.env
+    command: gunicorn --name onit -b 0.0.0.0:5486 -w 2 wsgi:app
+    ports:
+        - "5486:5486"

@@ -3,3 +3,4 @@
 *.pyc
 migrations/
 logfile.log
+onit.env
